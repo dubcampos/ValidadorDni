@@ -59,8 +59,9 @@ private EditText txt_dni;
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        resultado="no junciona tu codigo amiguito";
         return resultado;
+
     }
 
 
