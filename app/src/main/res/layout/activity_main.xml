@@ -46,9 +46,10 @@
             android:id="@+id/btn_consultar"
             android:layout_width="wrap_content"
             android:layout_height="5sp"
+            android:layout_gravity="center"
             android:layout_weight="0.1"
-            android:text="Consultar"
-            android:layout_gravity="center"/>
+            android:onClick="OnClick"
+            android:text="Consultar" />
 
         <TextView
             android:id="@+id/txt_respuesta"
