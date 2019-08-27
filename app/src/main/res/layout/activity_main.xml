@@ -45,14 +45,21 @@
         android:orientation="vertical">
 
 
-        <Button
-            android:id="@+id/btn_consultar"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="0.20"
-            android:onClick="OnClick"
-            android:text="Consultar" />
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_consultar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="clip_vertical|center_horizontal"
+                android:gravity="center"
+                android:text="Consultar" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/txt_respuesta"
@@ -61,7 +68,7 @@
             android:layout_weight="0.8"
             android:gravity="center_horizontal"
             android:padding="50dp"
-            android:text="Respuesta :)"
+            android:text="Ingrese el DNI y pulse CONSULTAR"
             android:textSize="36sp" />
     </LinearLayout>
 

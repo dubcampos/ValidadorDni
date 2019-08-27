@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,6 +32,25 @@ private EditText txt_dni;
         btn_consultar = findViewById(R.id.btn_consultar);
         txt_respuesta = (TextView)findViewById(R.id.txt_respuesta);
         txt_dni = (EditText)findViewById(R.id.txt_dni);
+
+        btn_consultar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (txt_dni.getText().toString().length()==8){
+                    ValidarDni(txt_dni.getText().toString());
+                    String splitResultado = Split(resultado);
+                    if(splitResultado.equals("  ")){
+                        txt_respuesta.setText("-DNI NO ENCONTRADO-");
+                    }else{
+                        txt_respuesta.setText(splitResultado);
+                    }
+                }else{
+                    Toast.makeText(MainActivity.this,"DNI debe tener 8 digitos",Toast.LENGTH_LONG).show();
+                }
+
+
+            }
+        });
     }
 
     public String ValidarDni(String dni){
@@ -59,16 +79,20 @@ private EditText txt_dni;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //resultado="no junciona tu codigo amiguito";
         return resultado;
 
     }
 
+    public String Split(String nombre){
+        String var = nombre;
+        String[] array = var.split("\\|");
+        nombre = array[2] + " " + array[0] + " " +array[1];
+        return nombre;
 
-    public void OnClick (View view){
-        ValidarDni(txt_dni.getText().toString());
-        txt_respuesta.setText(resultado);
     }
+
+
+
 
 
 
